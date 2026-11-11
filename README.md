@@ -36,6 +36,14 @@ Sau khi cập nhật mã Python, dừng rồi khởi động lại server.
 
 ### Mac: upload
 
+Tạo file `.env` ở thư mục gốc dự án, cạnh `README.md`:
+
+```dotenv
+UPLOAD_DEST='user@host:/absolute/path/to/absol-face-id/'
+```
+
+Thay `user`, `host` và đường dẫn bằng thông tin SSH của máy chủ Ubuntu. Giữ dấu `/` cuối đường dẫn. Hai script upload tự đọc `.env`, kể cả khi chạy từ thư mục khác. File này chỉ cần trên Mac, đã được loại khỏi Git và rsync.
+
 ```bash
 bash scripts/upload_init.sh   # Upload một lần
 bash scripts/upload_sync.sh   # Tự upload khi file thay đổi
